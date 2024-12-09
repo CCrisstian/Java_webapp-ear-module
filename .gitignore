@@ -1,0 +1,4 @@
+# Project exclude paths
+/webapp-ear-ear/target/
+/webapp-ear-ejb/target/
+/webapp-ear-war/target/
