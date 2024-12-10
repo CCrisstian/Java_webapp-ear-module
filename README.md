@@ -29,3 +29,22 @@ Este módulo es responsable de la capa de presentación de la aplicación. Conti
   - Contiene Servlets y otras clases relacionadas con la gestión de solicitudes y respuestas HTTP.
   - Incluye librerías como `jakarta.servlet.jsp.jstl` para manejar etiquetas JSP y facilitar la construcción de vistas dinámicas.
   - Es el punto de interacción entre el usuario y la lógica empresarial (módulo `EJB`).
+
+<h3>Relación entre los módulos</h3>
+
+- `webapp-ear-ear`
+  - Es el contenedor principal que empaqueta los módulos `webapp-ear-ejb` y `webapp-ear-war`.
+  - Configura cómo estos módulos interactúan entre sí.
+- `webapp-ear-ejb`
+  - Proporciona los servicios y lógica empresarial al módulo `webapp-ear-war`.
+  - Se define como una dependencia en el `pom.xml` del módulo `WAR`.
+- `webapp-ear-war`
+  - Presenta la interfaz de usuario y envía las solicitudes al módulo `EJB` para realizar la lógica empresarial.
+ 
+<h3>Cómo trabajan juntos</h3>
+
+- El archivo `.ear` generado por el módulo `webapp-ear-ear` se carga en el servidor `Wildfly`.
+- El servidor descompone el `.ear` en sus módulos:
+  - El módulo `webapp-ear-ejb` se registra como el manejador de la lógica empresarial.
+  - El módulo `webapp-ear-war` se registra como el punto de acceso para solicitudes web.
+- Los usuarios interactúan con la aplicación a través del módulo `WAR`, que delega las operaciones al módulo `EJB` según sea necesario.
