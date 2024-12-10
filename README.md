@@ -1,4 +1,4 @@
-<h1>Proyecto Modular con Java EE y Wildfly</h1>
+<h1 align="center">Proyecto Modular con Java EE y Wildfly</h1>
 <p>En un proyecto modular, con un enfoque <b>EAR</b> (<b>Enterprise Archive</b>), cada módulo tiene un propósito específico dentro de la arquitectura empresarial.</p>
 
 <h3>webapp-ear-ear</h3>
